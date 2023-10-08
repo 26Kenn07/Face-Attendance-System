@@ -8,6 +8,20 @@ from typing import List
 
 app = FastAPI()
 
+
+#------------ firebase set-up ---------
+#import required modules
+import firebase_admin
+from firebase_admin import db,credentials
+
+#auth to firebase
+cred = credentials.Certificate("credentials.json")
+firebase_admin.initialize_app(cred,{"databaseURL":"https://attendancesym-3b022-default-rtdb.firebaseio.com/"})
+
+# creating reference to root node
+ref = db.reference("/")
+
+
 class CaptureResponse(BaseModel):
     username: str
     face_encodings: List[List[float]]
@@ -31,7 +45,10 @@ async def capture_image(username: str):
             t += 1
 
             if t == 1:
-                return CaptureResponse(username=username, face_encodings=face_encodings)
+                face_encodings_lists = [encoding.tolist() for encoding in face_encodings]
+                db.reference("/").push().set({"username":username,"face_encodings":face_encodings_lists})
+                ref.get()
+                return CaptureResponse(username=username, face_encodings=face_encodings_lists)
     
     finally:
         # Release the video capture resource when done
