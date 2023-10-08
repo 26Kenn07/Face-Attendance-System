@@ -3,3 +3,4 @@ fastapi
 uvicorn
 face-recognition
 firebase_admin
+fastapi-cors
