@@ -53,3 +53,44 @@ async def capture_image(username: str):
     finally:
         # Release the video capture resource when done
         video_capture.release()
+
+@app.post("/attendance", response_model=dict)
+async def attendance():
+    k = 0
+    try:
+        video_capture = cv2.VideoCapture(0)
+        time.sleep(1)
+        
+        while True:
+            ret, frame = video_capture.read()
+            if not ret:
+                raise HTTPException(status_code=500, detail="Error capturing frame")
+
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            face_locations = face_recognition.face_locations(frame_rgb)
+            
+            if not face_locations:
+                # No face detected in the image
+                break
+            
+            # Assuming there's only one face in the image
+            face_encoding = face_recognition.face_encodings(frame_rgb, face_locations)[0]
+            
+            # Retrieve data from Firebase
+            data = ref.get()
+            for key, value in data.items():
+                if "face_encodings" in value and isinstance(value["face_encodings"], list):
+                    for encoding in value["face_encodings"]:
+                        # Compare the face encoding from Firebase with the captured face encoding
+                        match = face_recognition.compare_faces([encoding], face_encoding, tolerance=0.4)
+                        if match[0]:
+                            k += 1
+                            db.reference("/").push().set({"username":username,"face_encodings":face_encodings_lists})
+                            return {"username": value["username"]}
+                        
+                        if k== 0 :
+                            return {"message": "User Not Found"}
+                        
+    finally:
+        # Release the video capture resource when done
+        video_capture.release()
