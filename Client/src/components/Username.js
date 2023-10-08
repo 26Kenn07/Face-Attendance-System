@@ -29,6 +29,9 @@ export default function Username() {
       const {data} = await axios.post(`http://0.0.0.0:2000/capture_image/${username}`);
       console.log("response", data); // Print the response data
       toast.success(`${data.username} registered successfully`,{id: toastID})
+      setCameraActive(false);
+      setUsername("");
+
     } catch (error) {
       toast.error("Error to Register",{id:toastID})
       console.error("Error:", error);
@@ -73,7 +76,7 @@ export default function Username() {
             </div>
 
             <div className="textbox flex flex-col items-center gap-6">
-              <input className={styles.textbox} type="text" value={username} name="username" placeholder='Username' onChange={(e)=>{setUsername(e.target.value) ; console.log(username)} }/>
+              <input className={styles.textbox} type="text" value={username} name="username" placeholder='Username' onChange={(e)=>setUsername(e.target.value) }/>
               <button className={styles.btn} onClick={handleSubmit}>Let's Go</button>
             </div>
 

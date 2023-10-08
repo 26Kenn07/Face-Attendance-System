@@ -96,11 +96,14 @@ async def attendance():
                         match = face_recognition.compare_faces([encoding], face_encoding, tolerance=0.4)
                         if match[0]:
                             k += 1
-                            db.reference("/").push().set({"username":username,"face_encodings":face_encodings_lists})
-                            return {"username": value["username"]}
+                            matched_username = value["username"]
+                            break
                         
-                        if k== 0 :
-                            return {"message": "User Not Found"}
+            if k > 0:
+                return {"username": matched_username}
+                
+        if k == 0:
+            return {"message": "User Not Found"}
                         
     finally:
         # Release the video capture resource when done
