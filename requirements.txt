@@ -1,0 +1,7 @@
+opencv-python
+fastapi 
+uvicorn
+face-recognition
+async
+requests
+python-firebase

@@ -1,0 +1,157 @@
+{
+  "build": "hcec6c5f_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-64",
+  "constrains": [],
+  "depends": [
+    "libcxx >=14.0.6"
+  ],
+  "extracted_package_dir": "/Users/kirtan/opt/anaconda3/pkgs/expat-2.5.0-hcec6c5f_0",
+  "features": "",
+  "files": [
+    "bin/xmlwf",
+    "include/expat.h",
+    "include/expat_config.h",
+    "include/expat_external.h",
+    "lib/cmake/expat-2.5.0/expat-config-version.cmake",
+    "lib/cmake/expat-2.5.0/expat-config.cmake",
+    "lib/cmake/expat-2.5.0/expat-noconfig.cmake",
+    "lib/cmake/expat-2.5.0/expat.cmake",
+    "lib/libexpat.1.8.10.dylib",
+    "lib/libexpat.1.dylib",
+    "lib/libexpat.a",
+    "lib/libexpat.dylib",
+    "lib/pkgconfig/expat.pc",
+    "share/doc/expat/AUTHORS",
+    "share/doc/expat/changelog"
+  ],
+  "fn": "expat-2.5.0-hcec6c5f_0.conda",
+  "legacy_bz2_md5": "57cd2dedd78fd34dcd445e59bb50b901",
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/Users/kirtan/opt/anaconda3/pkgs/expat-2.5.0-hcec6c5f_0",
+    "type": 1
+  },
+  "md5": "ce90fd42031d3c01944146f089a9130b",
+  "name": "expat",
+  "package_tarball_full_path": "/Users/kirtan/opt/anaconda3/pkgs/expat-2.5.0-hcec6c5f_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/xmlwf",
+        "path_type": "hardlink",
+        "sha256": "3ebd335f4d24623655f7cd69c0bb26a9ce271f4ee1e33c12eecc03975a0459cc",
+        "sha256_in_prefix": "3ebd335f4d24623655f7cd69c0bb26a9ce271f4ee1e33c12eecc03975a0459cc",
+        "size_in_bytes": 31344
+      },
+      {
+        "_path": "include/expat.h",
+        "path_type": "hardlink",
+        "sha256": "f521acdad222644365b0e81a33bcd6939a98c91b225c47582cc84bd73d96febc",
+        "sha256_in_prefix": "f521acdad222644365b0e81a33bcd6939a98c91b225c47582cc84bd73d96febc",
+        "size_in_bytes": 43535
+      },
+      {
+        "_path": "include/expat_config.h",
+        "path_type": "hardlink",
+        "sha256": "b62c78825ae24859f4fafaef61339c507d41da46a8980b2eb0168e2b19ae83fd",
+        "sha256_in_prefix": "b62c78825ae24859f4fafaef61339c507d41da46a8980b2eb0168e2b19ae83fd",
+        "size_in_bytes": 4058
+      },
+      {
+        "_path": "include/expat_external.h",
+        "path_type": "hardlink",
+        "sha256": "7ca9ed28dd5e08eac425931894fabd4c876db8f4be26f9b9a33c2e4f70a0d6c3",
+        "sha256_in_prefix": "7ca9ed28dd5e08eac425931894fabd4c876db8f4be26f9b9a33c2e4f70a0d6c3",
+        "size_in_bytes": 6029
+      },
+      {
+        "_path": "lib/cmake/expat-2.5.0/expat-config-version.cmake",
+        "path_type": "hardlink",
+        "sha256": "45787a35c5d1ddbea8368e37c6effb2269faad104849305a9d2c5c98321a2b17",
+        "sha256_in_prefix": "45787a35c5d1ddbea8368e37c6effb2269faad104849305a9d2c5c98321a2b17",
+        "size_in_bytes": 2878
+      },
+      {
+        "_path": "lib/cmake/expat-2.5.0/expat-config.cmake",
+        "path_type": "hardlink",
+        "sha256": "33708544410c5b5fc7d1a25d1700804719deb4e4cb57358d4d9d2e7328418bcb",
+        "sha256_in_prefix": "33708544410c5b5fc7d1a25d1700804719deb4e4cb57358d4d9d2e7328418bcb",
+        "size_in_bytes": 3637
+      },
+      {
+        "_path": "lib/cmake/expat-2.5.0/expat-noconfig.cmake",
+        "path_type": "hardlink",
+        "sha256": "7ae18070ed47b05c2100710a05e48ae76d93078c150e20fa895d99d7e18eae38",
+        "sha256_in_prefix": "7ae18070ed47b05c2100710a05e48ae76d93078c150e20fa895d99d7e18eae38",
+        "size_in_bytes": 860
+      },
+      {
+        "_path": "lib/cmake/expat-2.5.0/expat.cmake",
+        "path_type": "hardlink",
+        "sha256": "21a9435ed0326bfd8d58ea95108b186bcb5fb4512044ecf28e132083cf165c89",
+        "sha256_in_prefix": "21a9435ed0326bfd8d58ea95108b186bcb5fb4512044ecf28e132083cf165c89",
+        "size_in_bytes": 4046
+      },
+      {
+        "_path": "lib/libexpat.1.8.10.dylib",
+        "path_type": "hardlink",
+        "sha256": "835dd9f6e058591ba620aecd011ade9268a57658998fdc5768ee2ce79c9e9545",
+        "sha256_in_prefix": "835dd9f6e058591ba620aecd011ade9268a57658998fdc5768ee2ce79c9e9545",
+        "size_in_bytes": 175916
+      },
+      {
+        "_path": "lib/libexpat.1.dylib",
+        "path_type": "softlink",
+        "sha256": "835dd9f6e058591ba620aecd011ade9268a57658998fdc5768ee2ce79c9e9545",
+        "size_in_bytes": 175916
+      },
+      {
+        "_path": "lib/libexpat.a",
+        "path_type": "hardlink",
+        "sha256": "21feac90285291d4174714b5bc50172d07e8ede2e265101ee2701483f80d75cb",
+        "sha256_in_prefix": "21feac90285291d4174714b5bc50172d07e8ede2e265101ee2701483f80d75cb",
+        "size_in_bytes": 210480
+      },
+      {
+        "_path": "lib/libexpat.dylib",
+        "path_type": "softlink",
+        "sha256": "835dd9f6e058591ba620aecd011ade9268a57658998fdc5768ee2ce79c9e9545",
+        "size_in_bytes": 175916
+      },
+      {
+        "_path": "lib/pkgconfig/expat.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_e2h_n6fsoa/croot/expat_1693497328306/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol",
+        "sha256": "795fad4acb60df89ffbfeeab42482429dd7ae02ddbb30f522c7c2a0882e4c63c",
+        "sha256_in_prefix": "d73ccbb523da5f8affda11075ed72b8c00eaa4b228e5beb880a28c77a19b52a4",
+        "size_in_bytes": 496
+      },
+      {
+        "_path": "share/doc/expat/AUTHORS",
+        "path_type": "hardlink",
+        "sha256": "59f14371c6b75912cfebb46e6247ee5146766e803a0365b124e5d3011e7d0877",
+        "sha256_in_prefix": "59f14371c6b75912cfebb46e6247ee5146766e803a0365b124e5d3011e7d0877",
+        "size_in_bytes": 142
+      },
+      {
+        "_path": "share/doc/expat/changelog",
+        "path_type": "hardlink",
+        "sha256": "406aa4e92d585d5d71e243372c1129ed19b3cccef820f8de3464c013edfb2470",
+        "sha256_in_prefix": "406aa4e92d585d5d71e243372c1129ed19b3cccef820f8de3464c013edfb2470",
+        "size_in_bytes": 64807
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "4c875c2e0ac2342ecd51f6401432a680c5d304fa1d9e496216561685287048b6",
+  "size": 143357,
+  "subdir": "osx-64",
+  "timestamp": 1693497401154,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-64/expat-2.5.0-hcec6c5f_0.conda",
+  "version": "2.5.0"
+}
