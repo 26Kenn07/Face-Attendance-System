@@ -6,8 +6,7 @@ import cv2
 from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-
-
+import numpy as np
 
 app = FastAPI()
 
@@ -72,7 +71,8 @@ async def capture_image(username: str):
 
 @app.post("/attendance", response_model=dict)
 async def attendance():
-    k = 0
+    detected_encodings = []  # Store detected face encodings
+    matched_usernames = []  # Store usernames of all matched encodings
     try:
         video_capture = cv2.VideoCapture(0)
         time.sleep(1)
@@ -87,30 +87,32 @@ async def attendance():
             
             if not face_locations:
                 # No face detected in the image
-                break
+                continue
             
-            # Assuming there's only one face in the image
-            face_encoding = face_recognition.face_encodings(frame_rgb, face_locations)[0]
-            
+            for face_location in face_locations:
+                # For each detected face location
+                face_encoding = face_recognition.face_encodings(frame_rgb, [face_location])[0]
+                detected_encodings.append(face_encoding)  # Store detected face encoding
+                
             # Retrieve data from Firebase
             data = ref.get()
             for key, value in data.items():
                 if "face_encodings" in value and isinstance(value["face_encodings"], list):
                     for encoding in value["face_encodings"]:
-                        # Compare the face encoding from Firebase with the captured face encoding
-                        match = face_recognition.compare_faces([encoding], face_encoding, tolerance=0.4)
-                        if match[0]:
-                            k += 1
-                            matched_username = value["username"]
-                            break
-                        
-            if k > 0:
+                        for encodings2 in detected_encodings:
+                            # Convert lists to NumPy arrays
+                            encodings2_np = np.array(encodings2)
+                            encoding_np = np.array(encoding)
+                            # Compare the detected face encoding with encodings in the database
+                            distance = np.linalg.norm(encodings2_np - encoding_np)
+                            if distance <= 0.4:
+                                matched_usernames.append(value["username"])
+            
+            if matched_usernames:
                 current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 ref.child(key).update({"presentdate": current_datetime})
-                return {"username": matched_username}
-                
-        if k == 0:
-            return {"message": "User Not Found"}
+                return {"matched_usernames": matched_usernames}
                         
     finally:
+        # Release the video capture resource when done
         video_capture.release()

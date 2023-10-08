@@ -21,24 +21,29 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("handel submit");
-    // setCameraActive(false);
-    const toastID = toast.loading('Capturing..')
+    const toastID = toast.loading('Capturing..');
     try {
       const { data } = await axios.post('http://0.0.0.0:2000/attendance');
-      // console.log("data.message", data.message); // Print the response data
-      if(!data.message){
-        return toast.success(`Now ${data.username} is Present !!`,{id: toastID})
-      }else{
-        return toast.error(`${data.message}`,{id:toastID})
+      console.log("data.message", data);
+  
+      if (!data.message && data.matched_usernames.length > 0) {
+        for (const username of data.matched_usernames) {
+          toast.success(`Now ${username} is Present !!`, { id: toastID + username });
+        }
+      } else if (!data.message) {
+        toast.success(`No usernames found.`, { id: toastID });
+      } else {
+        toast.error(`${data.message}`, { id: toastID });
       }
-      // setCameraActive(false);
-
+  
+      // Dismiss the "Capturing..." toast when the process is complete
+      toast.dismiss(toastID);
     } catch (error) {
-      toast.error("Error to take Attendance",{id:toastID})
+      toast.error("Error to take Attendance", { id: toastID });
       console.error("Error:", error);
     }
   };
+  
   
 
   useEffect(() => {
