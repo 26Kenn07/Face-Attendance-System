@@ -40,6 +40,12 @@ class CaptureResponse(BaseModel):
 @app.post("/capture_image/{username}", response_model=CaptureResponse)
 async def capture_image(username: str):
     try:
+        
+        # data = ref.get()
+        # for key, value in data.items():
+        #     if "username" in value and value["username"] == username:
+        #         return {"message":"User already exists"}
+        
         video_capture = cv2.VideoCapture(0)
         time.sleep(5)
         t = 0

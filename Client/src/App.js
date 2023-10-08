@@ -18,11 +18,11 @@ import PageNotFound from './components/PageNotFound';
 /** root routes */
 const router = createBrowserRouter([
     {
-        path : '/',
+        path : '/register',
         element : <Username></Username>
     },
     {
-        path : '/register',
+        path : '/',
         element : <Register></Register>
     },
     // {
