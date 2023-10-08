@@ -40,12 +40,11 @@ class CaptureResponse(BaseModel):
 @app.post("/capture_image/{username}", response_model=CaptureResponse)
 async def capture_image(username: str):
     try:
-        
-        # data = ref.get()
-        # for key, value in data.items():
-        #     if "username" in value and value["username"] == username:
-        #         return {"message":"User already exists"}
-        
+        data = ref.get()
+        for key, value in data.items():
+            if "username" in value and value["username"] == username:
+                return {"message": "User already exists"}
+
         video_capture = cv2.VideoCapture(0)
         time.sleep(5)
         t = 0
@@ -63,10 +62,10 @@ async def capture_image(username: str):
 
             if t == 1:
                 face_encodings_lists = [encoding.tolist() for encoding in face_encodings]
-                db.reference("/").push().set({"username":username,"face_encodings":face_encodings_lists})
+                db.reference("/").push().set({"username": username, "face_encodings": face_encodings_lists})
                 ref.get()
                 return CaptureResponse(username=username, face_encodings=face_encodings_lists)
-    
+
     finally:
         # Release the video capture resource when done
         video_capture.release()
@@ -106,11 +105,12 @@ async def attendance():
                             break
                         
             if k > 0:
+                current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                ref.child(key).update({"presentdate": current_datetime})
                 return {"username": matched_username}
                 
         if k == 0:
             return {"message": "User Not Found"}
                         
     finally:
-        # Release the video capture resource when done
         video_capture.release()
