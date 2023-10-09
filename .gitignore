@@ -1,4 +1,11 @@
-/venv
-.vscode
-__pycache__
-Client/node_modules
+.vscode/
+__pycache__/
+
+# Ignore the venv directory
+venv/
+
+# Ignore the node_modules directory inside the Client directory
+Client/node_modules/
+
+# Ignore the credentials.json file
+credentials.json

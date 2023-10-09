@@ -13,7 +13,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Replace with your frontend origin
+    allow_origins=["http://localhost:3000"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -112,7 +112,7 @@ async def attendance():
                 current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 ref.child(key).update({"presentdate": current_datetime})
                 return {"matched_usernames": matched_usernames}
-                        
+            
     finally:
         # Release the video capture resource when done
         video_capture.release()
