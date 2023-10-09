@@ -1,4 +1,4 @@
-# IMG-API
+# IMG-API BY FAB4
 
 This repository contains the code for the IMG-API project.
 
