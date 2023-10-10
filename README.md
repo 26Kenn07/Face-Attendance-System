@@ -2,6 +2,12 @@
 
 This repository contains the code for the IMG-API project.
 
+## Set-up Firebase Realtime Database  
+
+1. Download APIKEY from Firebase
+
+2. Make file `credentials.json` and copy-paste that APIKEY of Firebase into it
+
 ## Running the Front-End
 
 To run the front-end of the project, follow these steps:
