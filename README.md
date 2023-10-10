@@ -1,4 +1,4 @@
-# IMG-API BY FAB4
+# Face-Attendance-System BY FAB4
 
 This repository contains the code for the IMG-API project.
 
@@ -6,7 +6,7 @@ This repository contains the code for the IMG-API project.
 
 To run the front-end of the project, follow these steps:
 
-1. Open IMG-API directory in Your IDE
+1. Open Face-Attendance-System directory in Your IDE
 
 2. Navigate to the Client directory :-> `cd Client/`
 
@@ -20,7 +20,7 @@ This will start the development server and open the project in your default web 
 
 1. Create a virtual env :-> `conda create -p venv python -y`
 2. Activate venv :-> `conda activate ./venv`
-3. Install the requirments.txt file :-> `pip install requirements.txt`
+3. Install the requirments.txt file :-> `pip install -r requirements.txt`
 4. run app.py on port 2000 :-> `uvicorn app:app --host 0.0.0.0 --port 2000`
 
 This will start models and back-ends api on port 2000
