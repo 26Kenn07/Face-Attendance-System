@@ -1,4 +1,4 @@
-# Face-Attendance-System BY (Harsh,Kirtan)
+# Face-Attendance-System BY kirtan,harsh
 
 This repository contains the code for the IMG-API project.
 
