@@ -4,9 +4,9 @@ This repository contains the code for the IMG-API project.
 
 ## Developers
 
-back-end & front-end by `HARSH`
+Back-end & Front-end by `HARSH`
 
-ML by : `KIRTAN` .
+ML by : `KIRTAN`
 
 ## Set-up Firebase Realtime Database  
 
